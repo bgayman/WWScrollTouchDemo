@@ -14,6 +14,9 @@
 		CD5D6D3D1D181277008F032C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD5D6D3B1D181277008F032C /* LaunchScreen.storyboard */; };
 		CD5D6D481D181277008F032C /* WWTouchDemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D6D471D181277008F032C /* WWTouchDemeTests.swift */; };
 		CD5D6D531D181277008F032C /* WWTouchDemeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D6D521D181277008F032C /* WWTouchDemeUITests.swift */; };
+		CD5D6D611D1813D9008F032C /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D6D601D1813D9008F032C /* DotView.swift */; };
+		CD5D6D631D1817C2008F032C /* OverlayScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D6D621D1817C2008F032C /* OverlayScrollView.swift */; };
+		CD5D6D651D18C2F3008F032C /* TouchDelayGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D6D641D18C2F3008F032C /* TouchDelayGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		CD5D6D4E1D181277008F032C /* WWTouchDemeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWTouchDemeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5D6D521D181277008F032C /* WWTouchDemeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWTouchDemeUITests.swift; sourceTree = "<group>"; };
 		CD5D6D541D181277008F032C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD5D6D601D1813D9008F032C /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		CD5D6D621D1817C2008F032C /* OverlayScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayScrollView.swift; sourceTree = "<group>"; };
+		CD5D6D641D18C2F3008F032C /* TouchDelayGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchDelayGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				CD5D6D321D181277008F032C /* AppDelegate.swift */,
 				CD5D6D341D181277008F032C /* ViewController.swift */,
+				CD5D6D621D1817C2008F032C /* OverlayScrollView.swift */,
+				CD5D6D601D1813D9008F032C /* DotView.swift */,
+				CD5D6D641D18C2F3008F032C /* TouchDelayGestureRecognizer.swift */,
 				CD5D6D361D181277008F032C /* Main.storyboard */,
 				CD5D6D391D181277008F032C /* Assets.xcassets */,
 				CD5D6D3B1D181277008F032C /* LaunchScreen.storyboard */,
@@ -258,6 +267,9 @@
 			files = (
 				CD5D6D351D181277008F032C /* ViewController.swift in Sources */,
 				CD5D6D331D181277008F032C /* AppDelegate.swift in Sources */,
+				CD5D6D631D1817C2008F032C /* OverlayScrollView.swift in Sources */,
+				CD5D6D611D1813D9008F032C /* DotView.swift in Sources */,
+				CD5D6D651D18C2F3008F032C /* TouchDelayGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
