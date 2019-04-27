@@ -10,12 +10,11 @@ import UIKit
 
 class OverlayScrollView: UIScrollView {
 
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        let hitView = super.hitTest(point, withEvent: event)
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
         if hitView === self {
             return nil
         }
         return hitView
     }
-
 }

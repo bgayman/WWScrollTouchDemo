@@ -14,8 +14,8 @@ extension Int {
         return Int(arc4random())
     }
     
-    static func random(range: Range<Int>) -> Int {
-        return Int(arc4random_uniform(UInt32(range.endIndex - range.startIndex))) + range.startIndex
+    static func random(range: CountableClosedRange<Int>) -> Int {
+        return Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))) + range.lowerBound
     }
 }
 
@@ -52,7 +52,7 @@ class DotView: UIView {
     static func randomDotView() -> DotView {
         let dotView = DotView()
         dotView.backgroundColor = UIColor.randomColor()
-        let width = CGFloat(Int.random(Int(minCirleDiameter)...Int(maxCirleDiameter)))
+        let width = CGFloat(Int.random(range: Int(minCirleDiameter)...Int(maxCirleDiameter)))
         dotView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: width)
         dotView.layer.cornerRadius = width * 0.5
         dotView.layer.masksToBounds = true
@@ -62,8 +62,8 @@ class DotView: UIView {
     static func arrangeDotsRandomlyInView(view:UIView){
         let dots = view.subviews.filter{$0 is DotView}
         for dot in dots{
-            let x = CGFloat(Int.random(Int(maxCirleDiameter * 0.5)...Int(view.bounds.width) - Int(maxCirleDiameter * 0.5)))
-            let y = CGFloat(Int.random(Int(maxCirleDiameter * 0.5)...Int(view.bounds.height) - Int(maxCirleDiameter * 0.5)))
+            let x = CGFloat(Int.random(range: (Int(maxCirleDiameter * 0.5)...Int(view.bounds.width) - Int(maxCirleDiameter * 0.5))))
+            let y = CGFloat(Int.random(range: Int(maxCirleDiameter * 0.5)...Int(view.bounds.height) - Int(maxCirleDiameter * 0.5)))
             dot.center = CGPoint(x: x, y: y)
 
         }
@@ -96,34 +96,35 @@ class DotView: UIView {
     }
     
     static func arrangeDotsInViewWithNiftyAnimation(view:UIView){
-        UIView.animateWithDuration(0.5, animations: {
-            self.arrangeDotsNeatlyInView(view)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.arrangeDotsNeatlyInView(view: view)
         })
     }
     
     //MARK: - Touch Handling
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.overlayLayer.backgroundColor = UIColor(white: 0.25, alpha: 0.5).CGColor
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.overlayLayer.backgroundColor = UIColor(white: 0.25, alpha: 0.5).cgColor
         self.overlayLayer.frame = self.bounds
         self.layer.addSublayer(self.overlayLayer)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.overlayLayer.removeFromSuperlayer()
     }
-
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.overlayLayer.removeFromSuperlayer()
     }
     
     //MARK: - Hit Test
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var touchBounds = self.bounds
         if self.bounds.width < 44.0
         {
             let expansion = (44.0 - self.bounds.width)/2.0
-            touchBounds = CGRectInset(self.bounds, -expansion, -expansion)
+            touchBounds = bounds.insetBy(dx: -expansion, dy: -expansion)
         }
-        return CGRectContainsPoint(touchBounds, point)
+        return touchBounds.contains(point)
     }
 }
